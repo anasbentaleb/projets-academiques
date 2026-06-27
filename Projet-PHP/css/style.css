@@ -1,0 +1,387 @@
+/* css/style.css - "Topic Listing" Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    /* The "Topic Listing" Gradient */
+    --primary-gradient: linear-gradient(135deg, #00b4db 0%, #0083b0 100%); 
+    --secondary-bg: #f0f8ff; /* Light alice blue for sections */
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --white: #ffffff;
+    --radius: 20px; /* Big rounded corners like the template */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+/* --- NAVIGATION --- */
+nav {
+    padding: 1.5rem 0;
+    position: absolute; /* Transparent on top of hero */
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.nav-links a {
+    color: var(--white);
+    margin-left: 2rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+.nav-links a:hover { opacity: 1; text-decoration: underline; }
+
+/* Sticky Nav for non-hero pages */
+body.light-nav nav {
+    position: relative;
+    background: var(--primary-gradient);
+    box-shadow: var(--shadow);
+}
+
+/* --- HERO SECTION (The Big Gradient Header) --- */
+.hero-section {
+    background: var(--primary-gradient);
+    padding: 180px 0 100px; /* Space for nav */
+    text-align: center;
+    color: var(--white);
+    border-bottom-right-radius: 0; 
+    border-bottom-left-radius: 0; 
+    /* The template has a wave or curve, we'll keep it clean for now */
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+/* --- SEARCH BAR (Like the template) --- */
+.hero-search {
+    background: var(--white);
+    padding: 10px;
+    border-radius: 50px;
+    display: inline-flex;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.hero-search input, .hero-search select {
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+}
+
+.hero-search input { flex-grow: 1; border-radius: 50px 0 0 50px; }
+.hero-search select { border-left: 1px solid #eee; color: var(--text-light); }
+.hero-search button {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.hero-search button:hover { transform: scale(1.05); }
+
+/* --- CARDS (The "Browse Topics" look) --- */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 4rem 0 2rem;
+    font-weight: 700;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.card:hover { transform: translateY(-10px); }
+
+/* The little blue icon/badge in top right like template */
+.card-badge {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: #e0f2fe;
+    color: #0284c7;
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.card p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+.btn-card {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--text-dark); /* Dark button like template */
+    color: white;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.btn-card:hover { background: #000; }
+
+/* --- FORMS & LOGIN --- */
+.auth-box {
+    background: var(--white);
+    max-width: 450px;
+    margin: 5rem auto;
+    padding: 3rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+.auth-box button {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- ADMIN TABLE --- */
+.table-wrapper {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 1rem; color: var(--text-light); border-bottom: 2px solid #eee; }
+td { padding: 1rem; border-bottom: 1px solid #eee; }
+
+/* Footer */
+footer {
+    background: var(--white);
+    padding: 3rem;
+    text-align: center;
+    color: var(--text-light);
+    margin-top: auto;
+}
+
+/* Modern Form Container */
+.form-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* The Grid System */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 1.5rem;
+}
+
+/* Make certain fields span the full width */
+.full-width {
+    grid-column: span 2;
+}
+
+/* Input Styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #0284c7; /* Primary Blue */
+    outline: none;
+}
+
+/* Button Actions */
+.form-actions {
+    grid-column: span 2;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background: #0284c7;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    flex: 1;
+}
+
+.btn-secondary {
+    background: white;
+    color: #666;
+    border: 1px solid #ccc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    flex: 1;
+}
+
+/* Preview Image in Edit Mode */
+.img-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-top: 0.5rem;
+}
+
+/* --- Modal (Popup) Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    backdrop-filter: blur(5px); /* Optional: Blur background */
+    animation: fadeIn 0.3s;
+}
+
+/* The Modal Box Content */
+.modal .auth-box {
+    margin: 10% auto; /* 10% from the top and centered */
+    width: 90%;
+    max-width: 500px; /* Limit width */
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    animation: slideDown 0.3s;
+}
+
+/* Close Button (X) */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px);}
+    to {transform: translateY(0);}
+}
